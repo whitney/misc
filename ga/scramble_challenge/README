@@ -1,0 +1,21 @@
+This solution uses canvas (so it does not work in IE). 
+
+In chrome the canvas.toDataURL() method causes an 'Uncaught Error: SECURITY_ERR: DOM Exception 18' 
+when accessing the index.html via the local (file://...) URI scheme. 
+To avoid this (as noted here http://stackoverflow.com/a/2705057) simply run a small python server 
+in the project root (the directory containing index.html). 
+
+To do this with python 2.x:
+$ python -m SimpleHTTPServer
+
+To do this with python 3.x:
+$ python -m http.server 8000
+
+Then see the results of scramble.js at localhost port 8000:
+(If no dimension URI param is provided it defaults to 10 tiles per edge.)
+http://localhost:8000/index.html
+http://localhost:8000/index.html?dimension=20
+http://localhost:8000/index.html?dimension=80
+
+I borrowed and modified code from this blog post:
+http://thiscouldbebetter.wordpress.com/2012/02/25/slicing-an-image-into-tiles-in-javascript

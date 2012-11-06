@@ -1,0 +1,46 @@
+This program requires the installation of sympy (http://sympy.org/), a small 
+symbolic math package written in pure python. This is easily built from source 
+which can be obtained from github:
+
+$ git clone git://github.com/sympy/sympy.git
+$ cd sympy
+$ sudo python setup.py install
+
+To run this program (python must be installed and int_seq.py must be executable):
+./int_seq.py '1,9,25,49'
+
+Complexity:
+Assume the number of integers in the input sequence is n, then
+the complexity of the main() method can be decomposed into: 
+O(gen_matrices()) + O(gen_equations()) + O(gen_poly()) + O(sympy.solve(<a system of n equations>))
+These helper methods have the following complexities:
+gen_matrices(): O(n^2)
+gen_equations(): O(n^2)
+gen_poly(): O(n)
+So, ignoring the complexity of sympy's solve() method the main() method has an overall complexity of
+O(n^2)
+
+Example outputs:
+$ ./int_seq.py '1,9,25,49'
+5th elem: 81
+6th elem: 121
+7th elem: 169
+8th elem: 225
+9th elem: 289
+10th elem: 361
+11th elem: 441
+12th elem: 529
+13th elem: 625
+14th elem: 729
+
+$ ./int_seq.py '7,12,17'
+4th elem: 22
+5th elem: 27
+6th elem: 32
+7th elem: 37
+8th elem: 42
+9th elem: 47
+10th elem: 52
+11th elem: 57
+12th elem: 62
+13th elem: 67

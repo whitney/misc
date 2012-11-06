@@ -1,0 +1,5 @@
+To run this program (python must be installed and word_count.py must be executable):
+./word_count.py peace WarAndPeace.txt
+
+Complexity:
+O(n) where n is the number of words in the search corpus.
